@@ -1,14 +1,11 @@
-## First check whether it has the file in the current dir.
-if (!"load_data.R" %in% list.files()) {
-    setwd("~/Desktop/Online Coursera/Coursera-Exploratory-Data-Analysis/ExData_Plotting1/")
-} 
-source("load_data.R")
-png(filename = "plot1.png", 
-    width = 480, height = 480, 
-    units = "px", bg = "transparent")
-hist(Global_active_power, 
-     col = "red", 
-     main = "Global Active Power", 
-     xlab = "Global Active Power (kilowatts)",
-     breaks = 12, ylim = c(0, 1200))
+data<- read.table("household_power_consumption.txt", sep=";", header=T, quote= "", strip.white=TRUE, stringsAsFactors = F, na.strings= "?")
+
+# Subsetting the full data to obtain the data related to two days: 
+data<- subset(data, (data$Date == "1/2/2007" | data$Date== "2/2/2007")) 
+
+# creating Plot1
+png("plot1.png", width=480, height= 480)
+
+hist(data$Global_active_power, col= "red", xlab= "Global Active Power (kilowatts)", ylab= "Frequency", main= "Global Active Power")
+
 dev.off()
