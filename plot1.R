@@ -23,3 +23,4 @@ plot1 <- function() {
         cat("Plot1.png has been saved in", getwd())
 }
 plot1()
+Plot1.png has been saved in C:/Users/Perry Dela Cruz/Documents> 
