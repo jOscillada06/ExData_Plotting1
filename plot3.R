@@ -7,4 +7,4 @@ plot3 <- function() {
         dev.off()
         cat("plot3.png has been saved in", getwd())
 }
-plot3(
+plot3()
